@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Maqolalar{% endblock title %}
+
+{% block content %}
+
+<br>
+<div class="row">
+  {% for article in articles %}
+  <div class="col-sm-4 mb-3 mb-sm-0">
+    <div class="card">
+      {% if article.image %}
+      <a href="{% url 'article_detail' article.pk %}"><img src="{{ article.image.url }}" class="card-img-top" alt="{{ article.title }}" title="{{ article.title }}"></a>
+      {% endif %}
+      <div class="card-body">
+        <h5 class="card-title">{{ article.title }}</h5>
+        <p class="card-text"><small class="text-body-secondary">{{ article.author }} | {{ article.at_time }}</small></p>
+        <p class="card-text">{{ article.summary }}.</p>
+        <a href="{% url 'article_detail' article.pk %}" class="btn btn-primary">Ko'rish</a>
+      </div>
+    </div>
+    <p></p>
+  </div>
+  {% endfor %}
+</div>
+
+
+
+{% endblock content %}

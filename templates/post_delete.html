@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <h3>{{ article.title }} ni haqiqatdan ochirmoqchimisiz</h3>
+    <a class="btn btn-outline-success" href="{% url 'article_detail' article.pk %}">Qaytish</a>
+    <input class="btn btn-outline-danger" type="submit" value="Ochirish">
+</form>
+
+
+{% endblock content %}

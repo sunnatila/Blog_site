@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Maqola{% endblock title %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+    {% if article.image %}
+  <div class="col-sm-5 mb-3 mb-sm-0">
+    <div class="card">
+
+        <img src="{{ article.image.url }}" class="card-img-top" alt="{{ article.title }}">
+
+    </div>
+  </div>
+    {% endif %}
+  <div class="col-sm-7">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ article.title }}</h5>
+        <p class="card-text"><small class="text-body-secondary">{{ article.author }} | {{ article.at_time }}</small></p>
+        <p class="card-text">{{ article.body | safe }}</p>
+        <a class="btn btn-outline-success" href="{% url 'articles' %}">Qaytish</a>
+        <a class="btn btn-outline-primary" href="{% url 'update_post' object.pk %}" role="button" >Tahrirlash</a>
+        <a class="btn btn-outline-danger" href="{% url 'delete_post' object.pk %}" role="button">Ochirish</a>
+        <a class="btn btn-outline-success" href="{% url 'create_comment' object.pk %}" role="button">Izon bildirish</a>
+      </div>
+    </div>
+  </div>
+</div>
+<h3>Barcha izohlar</h3>
+<br>
+
+{% for comment in article.comments.all %}
+<figure>
+  <blockquote class="blockquote">
+    <p>{{ comment.comment }}</p>
+  </blockquote>
+  <figcaption class="blockquote-footer">
+    {{ comment.author }} <cite title="Source Title">{{ comment.at_time }}</cite>
+  </figcaption>
+</figure>
+{% endfor %}
+
+
+{% endblock content %}

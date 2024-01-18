@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+
+{% block title %}Izoh{% endblock title %}
+
+
+{% block content %}
+    <h2>Izoh bildirish</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input class="btn btn-outline-success" type="submit" value="Saqlash">
+    </form>
+{% endblock content %}
+

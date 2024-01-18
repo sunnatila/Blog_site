@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form|crispy }}
+    <input class="btn btn-outline-success" type="submit" value="Saqlash">
+</form>
+
+
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Bosh sahifa{% endblock title %}
+
+
+{% block content %}
+<br>
+<div class="card" style="width: 25rem;">
+  <div class="card-body">
+    <h5 class="card-title">Assalomu alaykum</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Sunnatbekning blog saytiga xush kelibsiz</h6>
+    <p class="card-text">Bizda sizga kerak bo'lgan narsalar bor.</p>
+    <a href="{% url 'articles' %}" class="card-link; btn btn-outline-primary">Barcha maqolani korish</a>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Royxatdan otish{% endblock title %}
+
+
+{% block content %}
+    <h2>Royxatdan otish</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-outline-success" value="Register">
+
+    </form>
+
+{% endblock content %}
+
